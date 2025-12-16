@@ -1,0 +1,19 @@
+model OrderItem {
+  id         Int      @id @default(autoincrement())
+  orderId    Int
+  productId  Int
+  quantity   Decimal  @db.Decimal(10, 2)
+
+  // Relasi ke Order
+  order      Order    @relation(fields: [orderId], references: [id])
+  
+  // Relasi ke Product
+  product    Product  @relation(fields: [productId], references: [id])
+
+  deletedAt  DateTime?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+
+  @@map("order_items")
+}
