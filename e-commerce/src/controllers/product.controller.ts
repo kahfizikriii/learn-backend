@@ -23,7 +23,10 @@ export const search = async (req: Request, res: Response) => {
 }
 
 export const create = async (req: Request, res: Response) => {
+  const file = req.file 
+  if (!file) throw new Error("file tidak ditemukan");
   const { name, description, price, stock, categoryId } = req.body;
+  const imageUrl = `public/uploads/${file.filename}`
   const data = {
     name: String(name),
     description: String(description),
@@ -31,6 +34,7 @@ export const create = async (req: Request, res: Response) => {
     stock: Number(stock),
     categoryId: Number(categoryId),
     ...(description && { description: description }),
+    image : imageUrl
   }
   const products =await createProduct(data)
   successResponse(res, "Berhasil menambahkan data", products);

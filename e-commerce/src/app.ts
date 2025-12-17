@@ -11,6 +11,7 @@ import userRouter from './routes/user.route'
 import ordersRouter from './routes/order.route'
 import ordersItemsRouter from './routes/orderitems.route'
 import authroute from './routes/auth.route';
+import Profileroute from './routes/profil.route';
 
 
 
@@ -21,6 +22,7 @@ app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(express.static("public"))
 
 app.use((req: Request, _res: Response, next: NextFunction) => {
   req.startTime = Date.now();
@@ -57,6 +59,8 @@ app.use('/api/user', userRouter)
 app.use('/api/orders', ordersRouter)
 app.use('/api/orderitems', ordersItemsRouter)
 app.use('/api/auth', authroute)
+app.use('/api/profile', Profileroute)
+
 
 // 404 fallback
 app.use((req: Request) => {

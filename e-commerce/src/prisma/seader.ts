@@ -67,7 +67,8 @@ async function main() {
           description: faker.commerce.productDescription(),
           price: faker.commerce.price({ min: 10, max: 1000, dec: 2 }),
           stock: faker.number.int({ min: 0, max: 500 }),
-          categoryId: category.id
+          categoryId: category.id,
+          image: faker.image.url(),
         }
       });
     })

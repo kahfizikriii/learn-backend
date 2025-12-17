@@ -1,0 +1,16 @@
+model Profile {
+    id              Int        @id @default(autoincrement())
+    createdAt       DateTime   @default(now())
+    updatedAt       DateTime   @updatedAt
+    deletedAt       DateTime?  @db.Timestamptz()
+  
+    name            String
+    gender          String?
+    address         String?
+    profile_picture_url String?
+
+    userId          Int     @unique
+    user            User    @relation(fields: [userId], references: [id])
+
+    @@map("profiles")
+}

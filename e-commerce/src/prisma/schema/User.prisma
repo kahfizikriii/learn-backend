@@ -7,6 +7,8 @@ model User {
 
   // Relasi ke Orders
   orders    Order[]
+  profile   Profile?
+
 
   deletedAt DateTime?
   createdAt DateTime @default(now())
