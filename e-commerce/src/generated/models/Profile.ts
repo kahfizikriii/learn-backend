@@ -38,35 +38,38 @@ export type ProfileSumAggregateOutputType = {
 
 export type ProfileMinAggregateOutputType = {
   id: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
+  deletedAt: Date | null
   name: string | null
   gender: string | null
   address: string | null
   profile_picture_url: string | null
   userId: number | null
-  createdAt: Date | null
-  updatedAt: Date | null
 }
 
 export type ProfileMaxAggregateOutputType = {
   id: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
+  deletedAt: Date | null
   name: string | null
   gender: string | null
   address: string | null
   profile_picture_url: string | null
   userId: number | null
-  createdAt: Date | null
-  updatedAt: Date | null
 }
 
 export type ProfileCountAggregateOutputType = {
   id: number
+  createdAt: number
+  updatedAt: number
+  deletedAt: number
   name: number
   gender: number
   address: number
   profile_picture_url: number
   userId: number
-  createdAt: number
-  updatedAt: number
   _all: number
 }
 
@@ -83,35 +86,38 @@ export type ProfileSumAggregateInputType = {
 
 export type ProfileMinAggregateInputType = {
   id?: true
+  createdAt?: true
+  updatedAt?: true
+  deletedAt?: true
   name?: true
   gender?: true
   address?: true
   profile_picture_url?: true
   userId?: true
-  createdAt?: true
-  updatedAt?: true
 }
 
 export type ProfileMaxAggregateInputType = {
   id?: true
+  createdAt?: true
+  updatedAt?: true
+  deletedAt?: true
   name?: true
   gender?: true
   address?: true
   profile_picture_url?: true
   userId?: true
-  createdAt?: true
-  updatedAt?: true
 }
 
 export type ProfileCountAggregateInputType = {
   id?: true
+  createdAt?: true
+  updatedAt?: true
+  deletedAt?: true
   name?: true
   gender?: true
   address?: true
   profile_picture_url?: true
   userId?: true
-  createdAt?: true
-  updatedAt?: true
   _all?: true
 }
 
@@ -203,13 +209,14 @@ export type ProfileGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 
 export type ProfileGroupByOutputType = {
   id: number
-  name: string
-  gender: string
-  address: string
-  profile_picture_url: string | null
-  userId: number
   createdAt: Date
   updatedAt: Date
+  deletedAt: Date | null
+  name: string
+  gender: string | null
+  address: string | null
+  profile_picture_url: string | null
+  userId: number
   _count: ProfileCountAggregateOutputType | null
   _avg: ProfileAvgAggregateOutputType | null
   _sum: ProfileSumAggregateOutputType | null
@@ -237,25 +244,27 @@ export type ProfileWhereInput = {
   OR?: Prisma.ProfileWhereInput[]
   NOT?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
   id?: Prisma.IntFilter<"Profile"> | number
-  name?: Prisma.StringFilter<"Profile"> | string
-  gender?: Prisma.StringFilter<"Profile"> | string
-  address?: Prisma.StringFilter<"Profile"> | string
-  profile_picture_url?: Prisma.StringNullableFilter<"Profile"> | string | null
-  userId?: Prisma.IntFilter<"Profile"> | number
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableFilter<"Profile"> | Date | string | null
+  name?: Prisma.StringFilter<"Profile"> | string
+  gender?: Prisma.StringNullableFilter<"Profile"> | string | null
+  address?: Prisma.StringNullableFilter<"Profile"> | string | null
+  profile_picture_url?: Prisma.StringNullableFilter<"Profile"> | string | null
+  userId?: Prisma.IntFilter<"Profile"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type ProfileOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  gender?: Prisma.SortOrder
-  address?: Prisma.SortOrder
-  profile_picture_url?: Prisma.SortOrderInput | Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  name?: Prisma.SortOrder
+  gender?: Prisma.SortOrderInput | Prisma.SortOrder
+  address?: Prisma.SortOrderInput | Prisma.SortOrder
+  profile_picture_url?: Prisma.SortOrderInput | Prisma.SortOrder
+  userId?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -265,24 +274,26 @@ export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
   OR?: Prisma.ProfileWhereInput[]
   NOT?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
-  name?: Prisma.StringFilter<"Profile"> | string
-  gender?: Prisma.StringFilter<"Profile"> | string
-  address?: Prisma.StringFilter<"Profile"> | string
-  profile_picture_url?: Prisma.StringNullableFilter<"Profile"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableFilter<"Profile"> | Date | string | null
+  name?: Prisma.StringFilter<"Profile"> | string
+  gender?: Prisma.StringNullableFilter<"Profile"> | string | null
+  address?: Prisma.StringNullableFilter<"Profile"> | string | null
+  profile_picture_url?: Prisma.StringNullableFilter<"Profile"> | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id" | "userId">
 
 export type ProfileOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  gender?: Prisma.SortOrder
-  address?: Prisma.SortOrder
-  profile_picture_url?: Prisma.SortOrderInput | Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  name?: Prisma.SortOrder
+  gender?: Prisma.SortOrderInput | Prisma.SortOrder
+  address?: Prisma.SortOrderInput | Prisma.SortOrder
+  profile_picture_url?: Prisma.SortOrderInput | Prisma.SortOrder
+  userId?: Prisma.SortOrder
   _count?: Prisma.ProfileCountOrderByAggregateInput
   _avg?: Prisma.ProfileAvgOrderByAggregateInput
   _max?: Prisma.ProfileMaxOrderByAggregateInput
@@ -295,86 +306,94 @@ export type ProfileScalarWhereWithAggregatesInput = {
   OR?: Prisma.ProfileScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ProfileScalarWhereWithAggregatesInput | Prisma.ProfileScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Profile"> | number
-  name?: Prisma.StringWithAggregatesFilter<"Profile"> | string
-  gender?: Prisma.StringWithAggregatesFilter<"Profile"> | string
-  address?: Prisma.StringWithAggregatesFilter<"Profile"> | string
-  profile_picture_url?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
-  userId?: Prisma.IntWithAggregatesFilter<"Profile"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Profile"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Profile"> | Date | string | null
+  name?: Prisma.StringWithAggregatesFilter<"Profile"> | string
+  gender?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  address?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  profile_picture_url?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  userId?: Prisma.IntWithAggregatesFilter<"Profile"> | number
 }
 
 export type ProfileCreateInput = {
-  name: string
-  gender: string
-  address: string
-  profile_picture_url?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  name: string
+  gender?: string | null
+  address?: string | null
+  profile_picture_url?: string | null
   user: Prisma.UserCreateNestedOneWithoutProfileInput
 }
 
 export type ProfileUncheckedCreateInput = {
   id?: number
-  name: string
-  gender: string
-  address: string
-  profile_picture_url?: string | null
-  userId: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  name: string
+  gender?: string | null
+  address?: string | null
+  profile_picture_url?: string | null
+  userId: number
 }
 
 export type ProfileUpdateInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  gender?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutProfileNestedInput
 }
 
 export type ProfileUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  gender?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ProfileCreateManyInput = {
   id?: number
-  name: string
-  gender: string
-  address: string
-  profile_picture_url?: string | null
-  userId: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  name: string
+  gender?: string | null
+  address?: string | null
+  profile_picture_url?: string | null
+  userId: number
 }
 
 export type ProfileUpdateManyMutationInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  gender?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  gender?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ProfileNullableScalarRelationFilter = {
@@ -384,13 +403,14 @@ export type ProfileNullableScalarRelationFilter = {
 
 export type ProfileCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
   name?: Prisma.SortOrder
   gender?: Prisma.SortOrder
   address?: Prisma.SortOrder
   profile_picture_url?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
 }
 
 export type ProfileAvgOrderByAggregateInput = {
@@ -400,24 +420,26 @@ export type ProfileAvgOrderByAggregateInput = {
 
 export type ProfileMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
   name?: Prisma.SortOrder
   gender?: Prisma.SortOrder
   address?: Prisma.SortOrder
   profile_picture_url?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
 }
 
 export type ProfileMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
   name?: Prisma.SortOrder
   gender?: Prisma.SortOrder
   address?: Prisma.SortOrder
   profile_picture_url?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
 }
 
 export type ProfileSumOrderByAggregateInput = {
@@ -458,22 +480,24 @@ export type ProfileUncheckedUpdateOneWithoutUserNestedInput = {
 }
 
 export type ProfileCreateWithoutUserInput = {
-  name: string
-  gender: string
-  address: string
-  profile_picture_url?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  name: string
+  gender?: string | null
+  address?: string | null
+  profile_picture_url?: string | null
 }
 
 export type ProfileUncheckedCreateWithoutUserInput = {
   id?: number
-  name: string
-  gender: string
-  address: string
-  profile_picture_url?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  name: string
+  gender?: string | null
+  address?: string | null
+  profile_picture_url?: string | null
 }
 
 export type ProfileCreateOrConnectWithoutUserInput = {
@@ -493,74 +517,80 @@ export type ProfileUpdateToOneWithWhereWithoutUserInput = {
 }
 
 export type ProfileUpdateWithoutUserInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  gender?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProfileUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  gender?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profile_picture_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
 
 export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  deletedAt?: boolean
   name?: boolean
   gender?: boolean
   address?: boolean
   profile_picture_url?: boolean
   userId?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  deletedAt?: boolean
   name?: boolean
   gender?: boolean
   address?: boolean
   profile_picture_url?: boolean
   userId?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  deletedAt?: boolean
   name?: boolean
   gender?: boolean
   address?: boolean
   profile_picture_url?: boolean
   userId?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectScalar = {
   id?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  deletedAt?: boolean
   name?: boolean
   gender?: boolean
   address?: boolean
   profile_picture_url?: boolean
   userId?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
 }
 
-export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "gender" | "address" | "profile_picture_url" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
+export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "deletedAt" | "name" | "gender" | "address" | "profile_picture_url" | "userId", ExtArgs["result"]["profile"]>
 export type ProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -578,13 +608,14 @@ export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    name: string
-    gender: string
-    address: string
-    profile_picture_url: string | null
-    userId: number
     createdAt: Date
     updatedAt: Date
+    deletedAt: Date | null
+    name: string
+    gender: string | null
+    address: string | null
+    profile_picture_url: string | null
+    userId: number
   }, ExtArgs["result"]["profile"]>
   composites: {}
 }
@@ -1010,13 +1041,14 @@ export interface Prisma__ProfileClient<T, Null = never, ExtArgs extends runtime.
  */
 export interface ProfileFieldRefs {
   readonly id: Prisma.FieldRef<"Profile", 'Int'>
+  readonly createdAt: Prisma.FieldRef<"Profile", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Profile", 'DateTime'>
+  readonly deletedAt: Prisma.FieldRef<"Profile", 'DateTime'>
   readonly name: Prisma.FieldRef<"Profile", 'String'>
   readonly gender: Prisma.FieldRef<"Profile", 'String'>
   readonly address: Prisma.FieldRef<"Profile", 'String'>
   readonly profile_picture_url: Prisma.FieldRef<"Profile", 'String'>
   readonly userId: Prisma.FieldRef<"Profile", 'Int'>
-  readonly createdAt: Prisma.FieldRef<"Profile", 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<"Profile", 'DateTime'>
 }
     
 

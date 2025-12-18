@@ -959,13 +959,14 @@ export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeo
 
 export const ProfileScalarFieldEnum = {
   id: 'id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt',
   name: 'name',
   gender: 'gender',
   address: 'address',
   profile_picture_url: 'profile_picture_url',
-  userId: 'userId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  userId: 'userId'
 } as const
 
 export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]

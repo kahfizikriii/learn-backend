@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "profiles" ADD COLUMN     "deletedAt" TIMESTAMPTZ,
+ALTER COLUMN "gender" DROP NOT NULL,
+ALTER COLUMN "address" DROP NOT NULL;

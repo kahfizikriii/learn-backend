@@ -3,8 +3,7 @@ import {
 create, 
 deleteById, 
 getAll, 
-getById, 
-search, 
+getById,  
 update 
 } from "../controllers/product.controller";
 import { productCreateValidation, productIdValidation, } from "../validation/product.validation";
@@ -19,8 +18,8 @@ router.get("/", getAll );
 // GET BY ID + VALIDASI
 router.get("/:id", validate(productIdValidation),getById );
 
-// GET BY SEARCH
-router.get("/search", search);
+// // GET BY SEARCH
+// router.get("/search", search);
 
 // CREATE PRODUK + VALIDASI
 router.post("/", authenticate, upload.single("image"), validate(productCreateValidation),create );

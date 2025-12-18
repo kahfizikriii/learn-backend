@@ -8,6 +8,7 @@ export interface ApiResponse {
     page: number;
     limit: number;
     total: number;
+    totalpages: number;
   };
   errors?: Array<{
     field: string;
@@ -19,7 +20,7 @@ export const successResponse = (
   res: Response,
   message: string,
   data: unknown = null,
-  pagination: any = null,
+  pagination: {page: number, limit: number, total: number, totalpages: number} | null = null,
   statusCode: number = 200
 ) => {
   const out: any = { success: true, message };
